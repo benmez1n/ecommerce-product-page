@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <link rel="stylesheet" href="styles/index.css">
+
+  <title>Frontend Mentor | E-commerce product page</title>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <img src="images/icon-menu.svg" id="menu" alt="menu">
+      <img src="images/logo.svg" alt="logo">
+      <div id="nav">
+        <ul>
+          <li>Collections</li>
+          <li>Men</li>
+          <li>Women</li>
+          <li>About</li>
+          <li>Contact</li>
+        </ul>
+        <div id="images">
+          <img src="images/icon-cart.svg" alt="cart">
+          <img src="images/image-avatar.png" alt="avatar">
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <div id="images">
+        <img src="images/icon-previous.svg" alt="previous" id="previous">
+        <img src="images/image-product-1.jpg" alt="">
+        <img src="images/icon-next.svg" alt="next" id = "next">
+        <div id="all-products">
+          <div class="img selected"><img class="selected" src="images/image-product-1-thumbnail.jpg" alt=""></div>
+          <div class="img"><img src="images/image-product-2-thumbnail.jpg" alt=""></div>
+          <div class="img"><img src="images/image-product-3-thumbnail.jpg" alt=""></div>
+          <div class="img"><img src="images/image-product-4-thumbnail.jpg" alt=""></div>
+        </div>
+      </div>
+      <div id="images-fixed">
+        <img src="images/icon-close.svg" alt="close" id="close">
+        <div id="img-container">
+          <img src="images/icon-previous.svg" alt="previous" id="previous">
+          <img src="images/image-product-1.jpg" alt="product">
+          <img src="images/icon-next.svg" alt="next" id = "next">
+        </div>
+        <div id="all-products">
+          <div class="img selected"><img class="selected" src="images/image-product-1-thumbnail.jpg" alt=""></div>
+          <div class="img"><img src="images/image-product-2-thumbnail.jpg" alt=""></div>
+          <div class="img"><img src="images/image-product-3-thumbnail.jpg" alt=""></div>
+          <div class="img"><img src="images/image-product-4-thumbnail.jpg" alt=""></div>
+        </div>
+      </div>
+      <div id="details">
+        <h1>Sneaker Company</h1>
+
+        <span>Fall Limited Edition Sneakers</span>
+    
+        <p>These low-profile sneakers are your perfect casual wear companion. Featuring a 
+          durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
+    
+        <div id="prix">
+          <div id="cash">
+            <span id="now">$125.00</span>
+            <span id="before">$250.00</span>
+          </div>
+          <span id="percentage">50%</span>
+        </div>
+    
+        <div id="control">
+          <div id="quantity">
+            <img src="images/icon-minus.svg" alt="minus" id="minus">
+            <span>0</span>
+            <img src="images/icon-plus.svg" alt="plus" id="plus">
+          </div>
+          <button>
+            <img src="images/icon-cart2.svg" alt="">
+            Add to cart
+          </button>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="js/index.js"></script>
+</body>
+</html>

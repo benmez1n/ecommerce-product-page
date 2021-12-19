@@ -5,6 +5,10 @@ $very-dark-blue:hsl(220, 13%, 13%);
 $dark-grey-blue:hsl(219, 9%, 45%);
 $grey-blue:hsl(220, 14%, 75%);
 $light-grey-blue:hsl(223, 64%, 98%);
+@mixin widthHeight($width,$height){
+    width:$width;
+    height:$height;
+}
 *{
     box-sizing: border-box;
     font-family: "Kumbh Sans";
@@ -19,7 +23,7 @@ img,button{
     cursor: pointer;
 }
 nav{
-    height:4rem;
+    @include widthHeight(100%,4rem);
     display: flex;
     border-bottom:1px solid $grey-blue;
     @media(max-width:769px){
@@ -30,18 +34,15 @@ nav{
         display:none;
         @media(max-width:769px){
             display: block;
-            width:2rem;
-            height: 1rem;
+            @include widthHeight(2rem,1rem );
             margin: 0.2rem 1rem 0 0;
         }
     }
     img[alt="logo"]{
-        width:15rem;
-        height: 2rem;
+        @include widthHeight(15rem,2rem );
         margin-top:0.5rem;
         @media(max-width:769px){
-            width:10rem;
-            height: 1rem;
+            @include widthHeight(10rem,1rem );
             margin-top:0.2rem;
         }
     }
@@ -50,15 +51,28 @@ nav{
     display: flex;
     justify-content: space-between;
     @media(max-width:769px){
+        margin:0;
         transform: translateX(70%);
-        place-items: center;
+    }
+    img[alt="close"]{
+        display:none;
+        @media(max-width:769px){
+            display: block;
+            @include widthHeight(1rem,1rem );
+        }
     }
     ul{
         list-style: none;
         display: flex;
         color:$dark-grey-blue;
-        @media(max-width:769px){
-            display: none;
+        padding-inline-start: 0;
+        @media (max-width:769px){
+            display:none;
+            flex-direction: column;
+            background-color: white;
+            color:black;
+            font-weight: 700;
+            @include widthHeight(80%,2900%)
         } 
         li{
             margin-right:1rem;
@@ -67,27 +81,35 @@ nav{
                 padding-bottom:2.7rem;
                 border-bottom:4px solid $orange;
             }
+            @media (max-width:769px){
+                margin-bottom: 1rem;
+                &:hover{
+                    padding:0;
+                    border-bottom: none;
+                }
+            }
+        }
+        li:first-of-type{
+            @media (max-width:769px){
+                margin-bottom: 3rem;
+            }
         }
     }
     #images{
         img[alt="cart"]{
-            width:2rem;
-            height: 2rem;
+            @include widthHeight(2rem,2rem );
             margin-right:1rem;
             margin-bottom: .5rem;
             @media(max-width:769px){
-                width:1rem;
-                height: 1rem;
+                @include widthHeight(1rem,1rem );
             }
         }
         img[alt="avatar"]{
-            width:3rem;
-            height: 3rem;
+            @include widthHeight(3rem,3rem );
             border-radius: 50%;
             &:hover{border:2px solid $orange;}
             @media(max-width:769px){
-                width:2rem;
-                height: 2rem;
+                @include widthHeight(2rem,2rem );
             }
         }    
     }
@@ -137,8 +159,7 @@ main{
                 display:none;
             }
             .img{
-                height: 95%;
-                width:95%;
+                @include widthHeight(95%,95% );
                 img{
                     width:100%;
                     &:hover{
@@ -161,8 +182,7 @@ main{
         position: fixed;
         top:0;
         left: 0;
-        width: 100%;
-        height: 100%;
+        @include widthHeight(100%,100%);
         text-align: center;
         padding-top:5%;
         z-index: 2;
@@ -201,8 +221,7 @@ main{
             width:25%;
             margin:auto;
             .img{
-                height: 95%;
-                width:95%;
+                @include widthHeight(95%,95%);
                 img{
                     width:100%;
                     &:hover{
@@ -287,7 +306,7 @@ main{
                 flex-direction: column;
             }
             #quantity{
-                width:100%;
+                width:40%;
                 display: flex;
                 justify-content: space-between;
                 padding:1rem 1rem;
@@ -296,9 +315,11 @@ main{
                 border-radius: 10px;
                 font-weight: 700;
                 font-size: 18px;
+                @media (max-width:769px){
+                    width:100%;
+                }
                 img{
-                    width:10%;
-                    height: fit-content;
+                    @include widthHeight(10%,fit-content);
                     &:hover{
                         opacity: .7;
                     }
@@ -319,8 +340,7 @@ main{
                     opacity: 0.7;
                 }
                 @media (max-width:769px){
-                    width:100%;
-                    height : 3.5rem;
+                    @include widthHeight(100%,3.5rem);
                     margin:1rem 0 3rem;
                 }
             }

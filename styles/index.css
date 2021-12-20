@@ -40,17 +40,25 @@ nav img[alt=menu] {
     height: 1rem;
     margin: 0.2rem 1rem 0 0;
   }
+  nav img[alt=menu].hide-it {
+    display: none;
+  }
 }
 nav img[alt=logo] {
-  width: 15rem;
-  height: 2rem;
-  margin-top: 0.5rem;
+  width: 10rem;
+  height: 1.5rem;
+  margin-top: 0.8rem;
+  margin-right: 2rem;
 }
 @media (max-width: 769px) {
   nav img[alt=logo] {
     width: 10rem;
     height: 1rem;
     margin-top: 0.2rem;
+    margin-right: 0;
+  }
+  nav img[alt=logo].hide-it {
+    display: none;
   }
 }
 nav #nav {
@@ -62,6 +70,9 @@ nav #nav {
   nav #nav {
     margin: 0;
     transform: translateX(70%);
+  }
+  nav #nav.hide-it {
+    transform: translateX(0);
   }
 }
 nav #nav img[alt=close] {
@@ -87,8 +98,11 @@ nav #nav ul {
     background-color: white;
     color: black;
     font-weight: 700;
-    width: 80%;
+    width: 90%;
     height: 2900%;
+  }
+  nav #nav ul.show-it {
+    display: block;
   }
 }
 nav #nav ul li {
@@ -123,6 +137,9 @@ nav #nav #images img[alt=cart] {
   nav #nav #images img[alt=cart] {
     width: 1rem;
     height: 1rem;
+  }
+  nav #nav #images img[alt=cart].hide-it {
+    display: none;
   }
 }
 nav #nav #images img[alt=avatar] {
@@ -179,6 +196,18 @@ main #images img[alt=next] {
   main #images img[alt=previous] {
     transform: translate(0.5rem, 13rem);
   }
+  main #images img[alt=previous].hide-it {
+    display: none;
+  }
+}
+main #images img[alt=product-image] {
+  display: none;
+}
+main #images img[alt=product-image].hide-it {
+  margin-top: 1.5rem;
+}
+main #images img[alt=product-image].current {
+  display: block;
 }
 main #images #all-products {
   display: grid;
@@ -221,7 +250,10 @@ main #images-fixed {
   z-index: 2;
   background-color: rgba(38, 38, 39, 0.9);
 }
-main #images-fixed #close {
+main #images-fixed.show-it {
+  display: block;
+}
+main #images-fixed #close2 {
   transform: translateX(11rem);
   width: 1rem;
 }
@@ -231,9 +263,13 @@ main #images-fixed #img-container {
   margin: auto;
   place-items: center;
 }
-main #images-fixed #img-container img[alt=product] {
+main #images-fixed #img-container img[alt=product-image] {
   width: 70%;
   margin: 0 auto 2rem;
+  display: none;
+}
+main #images-fixed #img-container img[alt=product-image].current {
+  display: block;
 }
 main #images-fixed #img-container img[alt=previous],
 main #images-fixed #img-container img[alt=next] {
@@ -397,10 +433,6 @@ main #details #control button:hover {
     height: 3.5rem;
     margin: 1rem 0 3rem;
   }
-}
-
-.show-it {
-  display: block;
 }
 
 /*# sourceMappingURL=index.css.map */

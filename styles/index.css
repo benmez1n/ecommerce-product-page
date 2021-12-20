@@ -91,7 +91,7 @@ nav #nav {
     margin: 0 0 0 40%;
   }
   nav #nav.hide-it {
-    margin-left: -10%;
+    margin-left: 0;
   }
   nav #nav.cart-open {
     margin-left: 4%;

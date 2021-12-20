@@ -22,6 +22,21 @@ $light-grey-blue:hsl(223, 64%, 98%);
 img,button{
     cursor: pointer;
 }
+button{
+    border:none;
+    color:white;
+    background-color: $orange;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 10px;
+    &:hover{
+        opacity: 0.7;
+    }
+    @media (max-width:769px){
+        @include widthHeight(100%,3.5rem);
+        margin:1rem 0 3rem;
+    }
+}
 nav{
     @include widthHeight(100%,4rem);
     display: flex;
@@ -58,6 +73,7 @@ nav{
     width:100%;
     display: flex;
     justify-content: space-between;
+    z-index: 20;
     @media(max-width:769px){
         margin:0;
         transform: translateX(70%);
@@ -110,10 +126,86 @@ nav{
         }
     }
     #images{
+        display: flex;
+        #cart{
+            text-align: right;
+            #cart-info{
+                display: none;
+                text-align: left;
+                width:320px;
+                height: 220px;
+                border-radius: 10px;
+                box-shadow: 0px 5px 8px $grey-blue,
+                            -5px 0px 8px $grey-blue;
+                margin-top: 1rem;
+                margin-left: 30%;
+                background-color: white;
+                z-index: 10;
+                &.show-it{display:block}
+                #paiment{
+                    text-align: center;
+                }
+                #title{
+                    display: block;
+                    padding:1rem;
+                    font-weight: 700;
+                    text-transform: capitalize;
+                    border-bottom: 1px solid $grey-blue;
+                }
+                #empty{
+                    display:none;
+                    margin-top: 20%;
+                    color: $dark-grey-blue;
+                    font-weight: 700;
+                    &.show-it{
+                        display:block;
+                    }
+                }
+                #paiment-info{
+                    display: none;
+                    margin:1rem 0;
+                    padding:1rem;
+                    justify-content: space-between;
+                    text-align: left;
+                    place-items: center;
+                    &.show-it{
+                        display: flex;
+                    }
+                    img[alt="paiment-img"]{
+                        @include widthHeight(2.25rem,2.25rem );
+                        border-radius: 2px;
+                        cursor: auto;
+                    }
+                    img[alt="delete"]{
+                        @include widthHeight(0.7rem,1rem );
+                        border-radius: 2px;
+                    }
+                    div{
+                        color:$dark-grey-blue;
+                        #intro{
+                            display: block; 
+                        }
+                        #final-price{
+                            margin-left: 1rem;
+                            color:black;
+                            font-weight: 700;
+                        }
+                    }
+                }
+                button{
+                    display: none;
+                    @include widthHeight(80%,2.5rem);
+                    margin:0 auto;
+                    &.show-it{
+                        display: block;
+                    }
+                }
+            }
+        }
         img[alt="cart"]{
             @include widthHeight(2rem,2rem );
             margin-right:1rem;
-            margin-bottom: .5rem;
+            margin-top: 0.5rem;
             @media(max-width:769px){
                 @include widthHeight(1rem,1rem );
                 &.hide-it{display: none}
@@ -122,8 +214,10 @@ nav{
         img[alt="avatar"]{
             @include widthHeight(3rem,3rem );
             border-radius: 50%;
+            margin-right: 3rem;
             &:hover{border:2px solid $orange;}
             @media(max-width:769px){
+                margin-right: 0;
                 @include widthHeight(2rem,2rem );
             }
         }    
@@ -170,6 +264,9 @@ main{
         }
         img[alt="product-image"]{
             display: none;
+            &:hover{
+                opacity: 0.4;
+            }
             &.hide-it{
                 margin-top:1.5rem
             }
@@ -212,7 +309,7 @@ main{
         @include widthHeight(100%,100%);
         text-align: center;
         padding-top:5%;
-        z-index: 2;
+        z-index: 30;
         background-color: rgba(38, 38, 39, 0.9);
         &.show-it{display:block}
         #close2{
@@ -238,6 +335,7 @@ main{
                 border-radius: 50%;
                 padding: 0.8rem 1rem;
                 background-color: white;
+                &:hover{background-color:$orange}
             }
             img[alt="previous"]{
                 transform: translateX(3.5rem);
@@ -362,19 +460,6 @@ main{
             }
             button{
                 width:50%;
-                border:none;
-                color:white;
-                background-color: $orange;
-                font-size: 16px;
-                font-weight: 700;
-                border-radius: 10px;
-                &:hover{
-                    opacity: 0.7;
-                }
-                @media (max-width:769px){
-                    @include widthHeight(100%,3.5rem);
-                    margin:1rem 0 3rem;
-                }
             }
         }
     }

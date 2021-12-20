@@ -4,7 +4,14 @@ const menuBtn = document.getElementById("menu"),
     subNav = document.getElementById("nav"),
     closeMenuBtn = document.getElementById("close"),
     closeFixed = document.getElementById("close2"),
-    cart = document.getElementById("cart"),
+    cart = document.getElementById("cart-image"),
+    cartInfo = document.getElementById("cart-info"),
+    emptyCart = document.getElementById("empty"),
+    paimentInfo = document.getElementById("paiment-info"),
+    deleteBtn = document.getElementById("delete"),
+    quantityItems = document.getElementById("quantity-items"),
+    finalPrice = document.getElementById("final-price"),
+    chechkoutBtn = document.querySelector("#paiment button");
     nextBtns = Array.from(document.querySelectorAll(".next")),
     previousBtns = Array.from(document.querySelectorAll(".previous")),
     productMainImage = document.getElementById("main-image"),
@@ -18,8 +25,10 @@ const menuBtn = document.getElementById("menu"),
     minusBtn = document.getElementById("minus"),
     addBtn = document.querySelector("#control button"),
     menuList = document.querySelector("#nav ul");
+
 //Global Variables
-let currentImage = 0;
+let currentImage = 0,
+    isEmpty = true;
 
 //functions
 
@@ -60,7 +69,9 @@ imagesListHandler = (element,index,array1,array2) => {
     })
     productMainImages[currentImage].classList.add("current")
 }
+
 //Menu 
+
 menuBtn.onclick = () => {
     menuList.classList.add("show-it")
     menuBtn.classList.add("hide-it")
@@ -102,6 +113,7 @@ previousBtns.forEach(element => {
         nextPreviousHandler();
     }
 })
+
 //Images List 
 
 productImages.forEach( (element ,index) => {
@@ -127,3 +139,49 @@ productMainImagesSmall.forEach(element => {
 closeFixed.onclick = () => {
     imagesFixed.classList.remove("show-it");
 }
+
+plusBtn.onclick = () => {
+    quantity.textContent = Number(quantity.textContent) + 1
+}
+minusBtn.onclick = () => {
+    if( Number(quantity.textContent) === 0) return
+    quantity.textContent = Number(quantity.textContent) - 1
+}
+
+//cart 
+
+cart.onclick = ()=> {
+    cartInfo.classList.toggle("show-it")
+}
+
+//Add to cart handler
+addBtn.onclick = () => {
+    if(Number(quantity.textContent) != 0){
+        isEmpty = false;
+        quantityItems.textContent = Number(quantity.textContent) ;
+        finalPrice.textContent = `$${125 * Number(quantity.textContent)}.00`
+        quantity.textContent = 0
+    }
+    else{
+        isEmpty=true
+    }
+}
+
+//delete button in the cart element
+deleteBtn.onclick = () => {
+    isEmpty = true;
+}
+
+// for verify the cart if it's Empty
+setInterval(() => {
+    if(isEmpty === true){
+        emptyCart.classList.add("show-it")
+        paimentInfo.classList.remove("show-it")
+        chechkoutBtn.classList.remove("show-it")
+    }
+    else{
+        emptyCart.classList.remove("show-it")
+        paimentInfo.classList.add("show-it")
+        chechkoutBtn.classList.add("show-it")
+    }
+}, 1000);

@@ -28,7 +28,8 @@ const menuBtn = document.getElementById("menu"),
 
 //Global Variables
 let currentImage = 0,
-    isEmpty = true;
+    isEmpty = true,
+    total = 0;
 
 //functions
 
@@ -89,7 +90,7 @@ closeMenuBtn.onclick = () => {
     previousBtn.classList.remove("hide-it")
     productMainImage.classList.remove("hide-it")
     cart.classList.remove("hide-it")
-    imagesFixed.classList.remove("show-it");
+    imagesFixed.classList.remove("show-it")
 }
 
 //Next/Previous Image 
@@ -142,25 +143,29 @@ closeFixed.onclick = () => {
 
 plusBtn.onclick = () => {
     quantity.textContent = Number(quantity.textContent) + 1
+    total++;
 }
 minusBtn.onclick = () => {
     if( Number(quantity.textContent) === 0) return
-    quantity.textContent = Number(quantity.textContent) - 1
+    quantity.textContent = Number(quantity.textContent) - 1;
+    total--;
 }
 
 //cart 
 
 cart.onclick = ()=> {
     cartInfo.classList.toggle("show-it")
+    subNav.classList.toggle("cart-open")
 }
 
 //Add to cart handler
 addBtn.onclick = () => {
     if(Number(quantity.textContent) != 0){
         isEmpty = false;
-        quantityItems.textContent = Number(quantity.textContent) ;
-        finalPrice.textContent = `$${125 * Number(quantity.textContent)}.00`
-        quantity.textContent = 0
+        quantityItems.textContent = total ;
+        totalPrice = 125 * total;
+        finalPrice.textContent = `$${totalPrice}.00`
+        quantity.textContent = 0;
     }
     else{
         isEmpty=true
@@ -170,6 +175,9 @@ addBtn.onclick = () => {
 //delete button in the cart element
 deleteBtn.onclick = () => {
     isEmpty = true;
+    quantity.textContent = 0;
+    total = 0;
+    totalPrice = 0;
 }
 
 // for verify the cart if it's Empty

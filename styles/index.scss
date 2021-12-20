@@ -75,10 +75,12 @@ nav{
     justify-content: space-between;
     z-index: 20;
     @media(max-width:769px){
-        margin:0;
-        transform: translateX(70%);
+        margin:0 0 0 40%;
         &.hide-it{
-            transform: translateX(0);
+           margin-left:-10%;
+        }
+        &.cart-open{
+            margin-left:4%;
         }
     }
     img[alt="close"]{
@@ -99,7 +101,7 @@ nav{
             background-color: white;
             color:black;
             font-weight: 700;
-            @include widthHeight(90%,2900%);
+            @include widthHeight(100%,2900%);
             &.show-it{
                 display:block;
             }
@@ -141,6 +143,10 @@ nav{
                 margin-left: 30%;
                 background-color: white;
                 z-index: 10;
+                @media (max-width:769px){
+                    margin-left: -60%;
+                    width:200%;
+                }
                 &.show-it{display:block}
                 #paiment{
                     text-align: center;
@@ -201,14 +207,14 @@ nav{
                     }
                 }
             }
-        }
-        img[alt="cart"]{
-            @include widthHeight(2rem,2rem );
-            margin-right:1rem;
-            margin-top: 0.5rem;
-            @media(max-width:769px){
-                @include widthHeight(1rem,1rem );
-                &.hide-it{display: none}
+            img[alt="cart"]{
+                @include widthHeight(2rem,2rem );
+                margin-right:1rem;
+                margin-top: 0.5rem;
+                @media(max-width:769px){
+                    @include widthHeight(1rem,1rem );
+                    &.hide-it{display: none}
+                }
             }
         }
         img[alt="avatar"]{
@@ -251,12 +257,12 @@ main{
         }
         img[alt="next"]{
             @media(max-width: 769px){
-                transform: translate(21.5rem,-12rem);
+                transform: translate(2100%,-850%);
             }    
         }
         img[alt="previous"]{
             @media(max-width: 769px){
-                transform: translate(.5rem,13rem);
+                transform: translate(100%,850%);
                 &.hide-it{
                     display:none;
                 }
@@ -311,7 +317,12 @@ main{
         padding-top:5%;
         z-index: 30;
         background-color: rgba(38, 38, 39, 0.9);
-        &.show-it{display:block}
+        &.show-it{
+            display:block;
+            @media (max-width:769px) {
+                display:none;
+            }
+        }
         #close2{
             transform: translateX(11rem);
             width:1rem
@@ -460,6 +471,9 @@ main{
             }
             button{
                 width:50%;
+                @media (max-width:769px){
+                    @include widthHeight(100%,3.5rem);
+                }
             }
         }
     }
